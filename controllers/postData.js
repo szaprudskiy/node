@@ -3,7 +3,7 @@ const axios = require('axios')
 const postData = async (req, res) => {
   try {
     const { campaignId, landingId, dateFrom, dateTo } = req.body
-    const apiUrl = process.env.URL + `/admin_api/v1/clicks/log`
+    const apiUrl = 'https://eluniversal24.website/admin_api/v1/clicks/log'
 
     const requestData = {
       range: {
@@ -73,7 +73,7 @@ const postData = async (req, res) => {
 
     const response = await axios.post(apiUrl, requestData, {
       headers: {
-        'Api-Key': process.env.API_KEY,
+        'Api-Key': 'b9b6df8fcac3be672f5b926390f54c79',
       },
     })
 
