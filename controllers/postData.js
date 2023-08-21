@@ -1,9 +1,8 @@
 const axios = require('axios')
 
-exports.handler = async (event, context) => {
+const postData = async (req, res) => {
   try {
-    const body = JSON.parse(event.body);
-    const { campaignId, landingId, dateFrom, dateTo } = body
+    const { campaignId, landingId, dateFrom, dateTo } = req.body
     const apiUrl = process.env.URL + `/admin_api/v1/clicks/log`
 
     const requestData = {
@@ -78,16 +77,11 @@ exports.handler = async (event, context) => {
       },
     })
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ data: response.data }),
-    }
+    console.log(response.data)
+    res.json({ data: response.data })
   } catch (error) {
     console.error('ошибка кампании на сервере', error)
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Ошибка сервера' }),
-    };
+    res.status(500).json({ error: 'Ошибка сервера' })
   }
 }
-
+module.exports = postData
