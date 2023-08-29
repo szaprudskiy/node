@@ -16,6 +16,7 @@ const postData = async (req, res) => {
       offset: 0,
       columns: [
         'sub_id',
+        'landing_clicked',
         'datetime',
         'ip',
         'campaign_id',
@@ -52,7 +53,6 @@ const postData = async (req, res) => {
         'is_lead',
         'is_sale',
         'is_rejected',
-        'landing_clicked',
       ],
       filters: [],
     }
