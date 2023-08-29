@@ -52,6 +52,7 @@ const postData = async (req, res) => {
         'is_lead',
         'is_sale',
         'is_rejected',
+        'landing_clicked',
       ],
       filters: [],
     }
